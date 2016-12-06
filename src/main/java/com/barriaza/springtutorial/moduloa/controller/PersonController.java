@@ -44,6 +44,7 @@ public class PersonController {
 
 	@RequestMapping("/edit/{id}")
 	public String editPerson(@PathVariable("id") int id, Model model) {
+		System.out.println(this.personService.getPersonById(id).getName());
 		model.addAttribute("person", this.personService.getPersonById(id));
 		model.addAttribute("listPersons", this.personService.listPersons());
 		return "person";

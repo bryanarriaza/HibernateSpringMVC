@@ -37,7 +37,6 @@ public class PersonDAOImpl implements PersonDAO {
 		logger.info("Person updated successfully, Person Details= " + person);
 	}
 
-
 	@SuppressWarnings({ "unchecked" })
 	public List<Person> listPersons() {
 		logger.info("List all persons");
@@ -46,7 +45,7 @@ public class PersonDAOImpl implements PersonDAO {
 
 	public Person getPersonById(int id) {
 		logger.info("List only person by id");
-		return (Person) getCurrentSession().load(Person.class, new Integer(id));
+		return (Person) this.getCurrentSession().get(Person.class, new Integer(id));
 	}
 
 	public void removePerson(int id) {
